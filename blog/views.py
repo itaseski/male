@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from .models import Post
 
 
+
 def post_list(request):
     post_list = Post.published.all()
     paginator = Paginator(post_list, 3)
