@@ -1,13 +1,28 @@
-<div class="pagination">
-    <span class="step-links">
-      {% if page.has_previous %}
-        <a href="?page={{ page.previous_page_number }}">Previous</a>
-      {% endif %}
-      <span class="current">
-        Page {{ page.number }} of {{ page.paginator.num_pages }}.
-      </span>
-      {% if page.has_next %}
-        <a href="?page={{ page.next_page_number }}">Next</a>
-      {% endif %}
-    </span>
+<div class="row">
+  <div class="col-xl-10">    
+      <ul class="pagination pagination-sm justify-content-center">
+        <li class="page-item active me-auto">
+          <p class="ms-auto">Страна {{ page.number }} од {{ page.paginator.num_pages }}</p>
+        </li> 
+        {% if page.has_previous %}
+        <li class="page-item">      
+            <a class="page-link" href="?page={{ page.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>      
+        </li>    
+        {% endif %}
+        <li class="page-item active">
+          <a class="page-link" href="#">{{ page.number }}</a>
+        </li>        
+        {% if page.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page.next_page_number }}"><span aria-hidden="true">&raquo;</span></a>
+          </li>
+        {% endif %}
+               
+      </ul>   
+      
   </div>
+  <div class="col-xl-2">    
+    
+  </div>
+</div>
+
