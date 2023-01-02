@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Tete{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Рецепти на Тете</h1>
+    <hr>
+    {% for post in posts %}
+        <h2>    
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p class="date">
+            Published {{ post.publish }} by {{ post.author }}
+        </p>
+        {{ post.content|truncatewords:45|linebreaks }}
+    {% endfor %}
+    
+    {% include "pagination.html" with page=page_obj %}
+{% endblock %}
